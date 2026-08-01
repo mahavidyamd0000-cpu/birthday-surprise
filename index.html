@@ -1,102 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Surprise</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
 <style>
-body{
+
+*{
 margin:0;
-background:black;
-color:#00ff00;
-font-family:Courier New;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#050505;
+font-family:Courier New, monospace;
+overflow:hidden;
+color:white;
+}
+
+/* Hacker Screen */
+
+#hacker{
+width:100%;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-overflow:hidden;
+flex-direction:column;
+background:black;
 }
-#box{
-text-align:center;
-}
+
 h1{
-font-size:45px;
-text-shadow:0 0 15px lime;
+color:#ff8de8;
+font-size:34px;
+text-shadow:0 0 15px hotpink;
+margin-bottom:20px;
 }
-p{
-font-size:22px;
+
+#terminal{
+width:90%;
+max-width:500px;
+height:260px;
+background:#111;
+border:2px solid #ff8de8;
+border-radius:15px;
+padding:20px;
+overflow:hidden;
+box-shadow:0 0 20px #ff66cc;
 }
-button{
-padding:15px 30px;
+
+#typing{
+color:#6dff6d;
 font-size:18px;
-border:none;
-background:#00ff88;
-cursor:pointer;
-border-radius:10px;
-margin-top:20px;
+line-height:30px;
+white-space:pre-line;
 }
+
+.cursor{
+display:inline-block;
+width:10px;
+background:#6dff6d;
+animation:blink .8s infinite;
+}
+
+@keyframes blink{
+
+50%{
+opacity:0;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div id="box">
-<h1 id="title">Initializing...</h1>
-<p id="msg">Please wait...</p>
-<button id="btn" onclick="surprise()" style="display:none;">
-Unlock Surprise
-</button>
+<div id="hacker">
+
+<h1>ACCESSING SYSTEM...</h1>
+
+<div id="terminal">
+
+<div id="typing"></div>
+
+<span class="cursor"></span>
+
 </div>
 
-<script>
-
-let step=0;
-
-let title=document.getElementById("title");
-let msg=document.getElementById("msg");
-
-let data=[
-["Connecting Server...","██████░░░░"],
-["Scanning Device...","████████░░"],
-["Access Granted","██████████"],
-["Loading Secret...","Almost Done..."]
-];
-
-function load(){
-
-if(step<data.length){
-
-title.innerHTML=data[step][0];
-msg.innerHTML=data[step][1];
-
-step++;
-
-setTimeout(load,1200);
-
-}else{
-
-title.innerHTML="💻 ACCESS COMPLETE";
-msg.innerHTML="Click below to unlock";
-
-document.getElementById("btn").style.display="inline";
-
-}
-
-}
-
-load();
-
-function surprise(){
-
-document.body.style.background="#111";
-
-title.innerHTML="🎉 SURPRISE 🎉";
-
-msg.innerHTML="❤️<br><br>You are stronger than you think.<br><br>Keep Smiling 😊";
-
-document.getElementById("btn").innerHTML="✨ Don't Forget to Smile..!✨";
-
-}
-
-</script>
-
-</body>
-</html>
+</div>
