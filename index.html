@@ -91,3 +91,198 @@ opacity:0;
 </div>
 
 </div>
+  <script>
+
+const lines = [
+
+"Initializing Birthday Protocol...",
+
+"",
+
+"Connecting Secure Server...",
+
+"",
+
+"██████████ 100%",
+
+"",
+
+"Searching Target...",
+
+"",
+
+"TARGET FOUND ✓",
+
+"",
+
+"Decrypting Secret Files...",
+
+"",
+
+"Access Granted ✓",
+
+"",
+
+"Loading Birthday Surprise..."
+
+];
+
+let i = 0;
+
+function type(){
+
+if(i < lines.length){
+
+document.getElementById("typing").innerHTML += lines[i] + "<br>";
+
+i++;
+
+setTimeout(type,700);
+
+}else{
+
+setTimeout(openSecret,1500);
+
+}
+
+}
+
+type();
+
+function openSecret(){
+
+document.getElementById("hacker").innerHTML=`
+
+<div style="display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+height:100vh;
+background:linear-gradient(135deg,#ffd6f5,#d9b3ff,#f3c4ff);">
+
+<h1 style="color:#7a1fa2;
+font-family:cursive;
+margin-bottom:30px;">
+
+🔐 Enter Our Secret Code
+
+</h1>
+
+<input
+id="code"
+
+type="password"
+
+maxlength="4"
+
+placeholder="****"
+
+style="
+
+width:180px;
+
+padding:15px;
+
+font-size:28px;
+
+text-align:center;
+
+border:none;
+
+border-radius:15px;
+
+outline:none;
+
+background:white;
+
+">
+
+<br><br>
+
+<button onclick="checkCode()"
+
+style="
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff66cc;
+
+color:white;
+
+font-size:20px;
+
+">
+
+ENTER
+
+</button>
+
+</div>
+
+`;
+
+} 
+    function checkCode(){
+
+let code=document.getElementById("code").value;
+
+if(code=="143"){
+
+document.body.innerHTML=`
+
+<div style="height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:#fff0fb;">
+
+<h1 style="color:#ff1493;
+font-size:40px;
+font-family:cursive;">
+
+🎂 Make A Wish 🎂
+
+</h1>
+
+<p style="color:#7a1fa2;
+font-size:20px;
+margin-top:10px;">
+
+Touch the candle 🕯️
+
+</p>
+
+<div id="cake"
+
+onclick="this.innerHTML='🎂<br><span style=&quot;font-size:50px&quot;>🔥</span>';setTimeout(function(){document.body.innerHTML='<div style=&quot;height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;background:#ffeff8;&quot;><h1 style=&quot;color:#ff1493;font-size:50px;&quot;>🎉 HAPPY BIRTHDAY 🎉</h1><p style=&quot;font-size:25px;color:#7a1fa2;&quot;>May all your wishes come true ❤️</p></div>';},1500);"
+
+style="font-size:120px;
+cursor:pointer;
+margin-top:30px;">
+
+🎂
+
+</div>
+
+</div>
+
+`;
+
+}else{
+
+alert("Wrong Secret Code ❌");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+    
