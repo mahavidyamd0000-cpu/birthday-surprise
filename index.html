@@ -1,110 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Accessing...</title>
-
+<title>Surprise</title>
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
+margin:0;
 background:black;
 color:#00ff00;
-font-family:Courier New, monospace;
+font-family:Courier New;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
 overflow:hidden;
 }
-
-#terminal{
-width:90%;
-max-width:700px;
-font-size:20px;
-line-height:35px;
-white-space:pre-line;
-text-shadow:0 0 8px #00ff00;
+#box{
+text-align:center;
+}
+h1{
+font-size:45px;
+text-shadow:0 0 15px lime;
+}
+p{
+font-size:22px;
+}
+button{
+padding:15px 30px;
+font-size:18px;
+border:none;
+background:#00ff88;
+cursor:pointer;
+border-radius:10px;
+margin-top:20px;
 }
 </style>
-
 </head>
 
 <body>
 
-<div id="terminal"></div>
+<div id="box">
+<h1 id="title">Initializing...</h1>
+<p id="msg">Please wait...</p>
+<button id="btn" onclick="surprise()" style="display:none;">
+Unlock Surprise
+</button>
+</div>
 
 <script>
 
-let lines=[
-"Initializing System...",
-"",
-"Connecting Secure Server...",
-"",
-"██████████ 100%",
-"",
-"Scanning Device...",
-"",
-"Target Found ✔",
-"",
-"Decrypting Secret Files...",
-"",
-"Access Granted ✔",
-"",
-"Loading Surprise..."
+let step=0;
+
+let title=document.getElementById("title");
+let msg=document.getElementById("msg");
+
+let data=[
+["Connecting Server...","██████░░░░"],
+["Scanning Device...","████████░░"],
+["Access Granted","██████████"],
+["Loading Secret...","Almost Done..."]
 ];
 
-let i=0;
+function load(){
 
-function type(){
+if(step<data.length){
 
-if(i<lines.length){
+title.innerHTML=data[step][0];
+msg.innerHTML=data[step][1];
 
-document.getElementById("terminal").innerHTML+=lines[i]+"<br>";
+step++;
 
-i++;
-
-setTimeout(type,700);
+setTimeout(load,1200);
 
 }else{
 
-setTimeout(showMessage,1200);
+title.innerHTML="💻 ACCESS COMPLETE";
+msg.innerHTML="Click below to unlock";
+
+document.getElementById("btn").style.display="inline";
 
 }
 
 }
 
-function showMessage(){
+load();
 
-document.body.innerHTML=`
+function surprise(){
 
-<div style="text-align:center;color:white;font-family:Arial">
+document.body.style.background="#111";
 
-<h1 style="font-size:45px;">🎉 SURPRISE 🎉</h1>
+title.innerHTML="🎉 SURPRISE 🎉";
 
-<br>
+msg.innerHTML="❤️<br><br>You are stronger than you think.<br><br>Keep Smiling 😊";
 
-<h2>You unlocked the hidden message.</h2>
-
-<br>
-
-<p style="font-size:22px;">
-✨ Keep smiling...<br><br>
-The best is yet to come ❤️
-</p>
-
-</div>
-
-`;
+document.getElementById("btn").innerHTML="✨ Have a Nice Day ✨";
 
 }
-
-type();
 
 </script>
 
