@@ -1,13 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessing...</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:black;
+color:#00ff00;
+font-family:Courier New, monospace;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+#terminal{
+width:90%;
+max-width:700px;
+font-size:20px;
+line-height:35px;
+white-space:pre-line;
+text-shadow:0 0 8px #00ff00;
+}
+</style>
+
 </head>
-<body style="background:black; color:white; text-align:center; font-family:Arial;">
 
-<h1>🎉 Welcome 🎉</h1>
+<body>
 
-<p>My first website created using GitHub ❤️</p>
+<div id="terminal"></div>
+
+<script>
+
+let lines=[
+"Initializing System...",
+"",
+"Connecting Secure Server...",
+"",
+"██████████ 100%",
+"",
+"Scanning Device...",
+"",
+"Target Found ✔",
+"",
+"Decrypting Secret Files...",
+"",
+"Access Granted ✔",
+"",
+"Loading Surprise..."
+];
+
+let i=0;
+
+function type(){
+
+if(i<lines.length){
+
+document.getElementById("terminal").innerHTML+=lines[i]+"<br>";
+
+i++;
+
+setTimeout(type,700);
+
+}else{
+
+setTimeout(showMessage,1200);
+
+}
+
+}
+
+function showMessage(){
+
+document.body.innerHTML=`
+
+<div style="text-align:center;color:white;font-family:Arial">
+
+<h1 style="font-size:45px;">🎉 SURPRISE 🎉</h1>
+
+<br>
+
+<h2>You unlocked the hidden message.</h2>
+
+<br>
+
+<p style="font-size:22px;">
+✨ Keep smiling...<br><br>
+The best is yet to come ❤️
+</p>
+
+</div>
+
+`;
+
+}
+
+type();
+
+</script>
 
 </body>
 </html>
